@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Alok Badoni — Retail Strategy & Operations Leader</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --paper: #f7f4ef;
+    --gold: #b8892a;
+    --gold-light: #d4a843;
+    --charcoal: #1e1e1e;
+    --mid: #4a4a4a;
+    --light: #9a9a8a;
+    --rule: #e0dbd0;
+    --accent-bg: #1a1612;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--accent-bg);
+    color: #f0ece4;
+    padding: 100px 6vw 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,137,42,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .hero-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.1s;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #f5f0e8;
+    margin-bottom: 18px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.25s;
+  }
+
+  .hero-title {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 400;
+    color: var(--gold-light);
+    margin-bottom: 12px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.4s;
+  }
+
+  .hero-meta {
+    font-size: 0.85rem;
+    color: #9a9585;
+    margin-bottom: 32px;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.5s;
+  }
+
+  .hero-tagline {
+    max-width: 680px;
+    font-size: 1.05rem;
+    color: #c8c2b6;
+    line-height: 1.75;
+    border-left: 2px solid var(--gold);
+    padding-left: 20px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.65s;
+  }
+
+  .hero-open {
+    margin-top: 40px;
+    display: inline-block;
+    background: rgba(184,137,42,0.12);
+    border: 1px solid rgba(184,137,42,0.4);
+    color: var(--gold-light);
+    padding: 10px 22px;
+    border-radius: 2px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.8s;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── LAYOUT ── */
+  .section {
+    padding: 72px 6vw;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 600;
+    color: var(--charcoal);
+    line-height: 1.2;
+    margin-bottom: 28px;
+  }
+
+  .section p {
+    max-width: 760px;
+    color: var(--mid);
+    margin-bottom: 16px;
+    font-size: 0.97rem;
+  }
+
+  .highlight { color: var(--charcoal); font-weight: 500; }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 16px;
+  }
+
+  @media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; gap: 24px; } }
+
+  .about-card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--gold);
+    padding: 28px 28px 24px;
+  }
+
+  .about-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--charcoal);
+    margin-bottom: 10px;
+  }
+
+  .about-card p {
+    font-size: 0.88rem;
+    color: var(--mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── IMPACT ── */
+  .impact-header {
+    background: var(--charcoal);
+    color: #e8e4dc;
+    padding: 20px 28px;
+    margin-bottom: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .impact-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+  }
+
+  .impact-header span {
+    font-size: 0.78rem;
+    color: #9a9585;
+    letter-spacing: 0.05em;
+  }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    border: 1px solid var(--rule);
+    border-top: none;
+  }
+
+  .impact-item {
+    padding: 22px 24px;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.2s;
+  }
+
+  .impact-item:hover { background: #fff; }
+
+  .impact-check {
+    color: var(--gold);
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+
+  .impact-item p {
+    font-size: 0.87rem;
+    color: var(--mid);
+    line-height: 1.55;
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .impact-item strong {
+    display: block;
+    font-size: 1.4rem;
+    font-family: 'Playfair Display', serif;
+    color: var(--charcoal);
+    margin-bottom: 4px;
+  }
+
+  /* ── CAREER HIGHLIGHTS ── */
+  .career-list { list-style: none; margin-top: 8px; }
+
+  .career-list li {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: start;
+  }
+
+  @media (max-width: 600px) { .career-list li { grid-template-columns: 1fr; gap: 6px; } }
+
+  .career-list li:last-child { border-bottom: none; }
+
+  .career-org {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding-top: 3px;
+  }
+
+  .career-detail { font-size: 0.92rem; color: var(--mid); }
+  .career-detail strong { color: var(--charcoal); font-weight: 500; }
+
+  /* ── DELIVERY TABLE ── */
+  .delivery-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    font-size: 0.88rem;
+  }
+
+  .delivery-table th {
+    background: var(--charcoal);
+    color: #e8e4dc;
+    padding: 14px 20px;
+    text-align: left;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.04em;
+  }
+
+  .delivery-table th:first-child { border-right: 1px solid #3a3a3a; }
+
+  .delivery-table td {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--rule);
+    color: var(--mid);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+
+  .delivery-table td:first-child {
+    border-right: 1px solid var(--rule);
+    color: var(--charcoal);
+    font-weight: 400;
+  }
+
+  .delivery-table tr:hover td { background: #fff; }
+
+  .delivery-note {
+    margin-top: 20px;
+    font-size: 0.92rem;
+    color: var(--charcoal);
+    font-weight: 500;
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+  }
+
+  /* ── PAIN POINTS ── */
+  .pain-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--rule);
+    margin-top: 16px;
+  }
+
+  @media (max-width: 640px) { .pain-grid { grid-template-columns: 1fr; } }
+
+  .pain-col { padding: 32px 28px; }
+  .pain-col:first-child { border-right: 1px solid var(--rule); background: #fff; }
+
+  .pain-col h4 {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+
+  .pain-col ul { list-style: none; }
+
+  .pain-col ul li {
+    font-size: 0.88rem;
+    color: var(--mid);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--rule);
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .pain-col ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+
+  .pain-col ul li:last-child { border-bottom: none; }
+
+  .pain-resolution {
+    grid-column: 1 / -1;
+    background: var(--charcoal);
+    color: #c8c2b6;
+    padding: 24px 28px;
+    font-size: 0.92rem;
+    border-top: 1px solid #3a3a3a;
+    line-height: 1.7;
+  }
+
+  .pain-resolution strong { color: var(--gold-light); }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    background: var(--accent-bg);
+    color: #e8e4dc;
+    padding: 72px 6vw;
+    border-bottom: none;
+  }
+
+  .contact-section .section-label { color: var(--gold-light); }
+
+  .contact-section .section-title { color: #f0ece4; }
+
+  .contact-section p { color: #9a9585; max-width: 600px; }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 36px;
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border: 1px solid rgba(184,137,42,0.4);
+    color: var(--gold-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    transition: all 0.2s;
+    background: rgba(184,137,42,0.06);
+  }
+
+  .contact-link:hover {
+    background: rgba(184,137,42,0.15);
+    border-color: var(--gold);
+  }
+
+  .contact-link svg { width: 16px; height: 16px; fill: currentColor; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0a0905;
+    color: #4a4840;
+    text-align: center;
+    padding: 24px;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(26,22,18,0.96);
+    backdrop-filter: blur(8px);
+    padding: 0 6vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    border-bottom: 1px solid rgba(184,137,42,0.2);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: #e8e4dc;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9a9585;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  @media (max-width: 560px) { .nav-links { display: none; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Alok Badoni</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#deliver">Expertise</a></li>
+    <li><a href="#contact">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">Retail Leadership · Strategy · Operations</div>
+  <h1>Alok Badoni</h1>
+  <div class="hero-title">Retail Operations & Category Strategy Leader</div>
+  <div class="hero-meta">25+ Years · FMCG / Grocery / Retail · Delhi-NCR / Bengaluru</div>
+  <p class="hero-tagline">
+    Using AI-powered analytics and hands-on operations expertise, I help grocery chains stop losing profits to stockouts, aging inventory, and missed festive opportunities — delivering measurable uplifts through strategy that actually executes.
+  </p>
+  <div class="hero-open">Open to: VP – Strategy / Operations Roles &amp; Retail Consulting Assignments</div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-label">Who I Am</div>
+  <h2 class="section-title">Strategy Designed. Operations Delivered.</h2>
+  <p>
+    Retail operations leader with 25+ years across FMCG, grocery, and retail strategy. I design and execute tech-enabled systems that fix small and mid-size retailers' biggest pain points: slow inventory turns, weak category profitability, and unstructured operations.
+  </p>
+  <p>
+    I sit at the intersection of two worlds most leaders inhabit separately — <span class="highlight">strategic design</span> and <span class="highlight">operational execution.</span> I don't just build the roadmap; I drive the vehicle.
+  </p>
+  <div class="about-grid">
+    <div class="about-card">
+      <h4>The Strategist</h4>
+      <p>Category roadmaps, private label architecture, festive playbooks, P&L-aligned business plans — built with the precision of someone who has lived the consequences of getting them wrong.</p>
+    </div>
+    <div class="about-card">
+      <h4>The Operator</h4>
+      <p>Store launches, workforce systems, KPI dashboards, supply chain streamlining — executed with the discipline of someone who has stood on the shopfloor and made it work.</p>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="section" id="impact">
+  <div class="section-label">Recent Impact</div>
+  <h2 class="section-title">Numbers That Speak.</h2>
+  <div class="impact-header">
+    <h3>Sodhi's Super Market, Delhi-NCR</h3>
+    <span>18 Stores · ₹250Cr Portfolio · GM – Strategy &amp; Operations</span>
+  </div>
+  <div class="impact-grid">
+    <div class="impact-item">
+      <div class="impact-check">◆</div>
+      <strong>28%</strong>
+      <p>Reduction in stockouts via AI-powered assortment &amp; demand forecasting</p>
+    </div>
+    <div class="impact-item">
+      <div class="impact-check">◆</div>
+      <strong>15%</strong>
+      <p>Margin expansion through category optimisation</p>
+    </div>
+    <div class="impact-item">
+      <div class="impact-check">◆</div>
+      <strong>22%</strong>
+      <p>Festive sales growth via high-value assortment strategy</p>
+    </div>
+    <div class="impact-item">
+      <div class="impact-check">◆</div>
+      <strong>1/5</strong>
+      <p>Over one-fifth productivity improvement across a 180-person workforce</p>
+    </div>
+    <div class="impact-item">
+      <div class="impact-check">◆</div>
+      <strong>18%</strong>
+      <p>Faster inventory turns by eliminating no/low-sale SKUs</p>
+    </div>
+    <div class="impact-item">
+      <div class="impact-check">◆</div>
+      <strong>+16%</strong>
+      <p>Profitability lift from private label <em>Care 4 Homes</em> in home-care category</p>
+    </div>
+    <div class="impact-item">
+      <div class="impact-check">◆</div>
+      <strong>2</strong>
+      <p>New stores opened end-to-end — concept to operations</p>
+    </div>
+    <div class="impact-item">
+      <div class="impact-check">◆</div>
+      <strong>3</strong>
+      <p>Stores benefited from central kitchen freeing shopfloor space</p>
+    </div>
+    <div class="impact-item">
+      <div class="impact-check">◆</div>
+      <strong>∞</strong>
+      <p>Category dashboard built tracking COGS, margins &amp; rotation across all key verticals</p>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER HIGHLIGHTS -->
+<section class="section" id="career">
+  <div class="section-label">Career Highlights</div>
+  <h2 class="section-title">Beyond Grocery Retail.</h2>
+  <p>Two of India's most significant business transformations — contributing a cross-sector lens of systems thinking, P&L discipline, and the ability to build from scratch in fast-moving environments.</p>
+  <ul class="career-list">
+    <li>
+      <div class="career-org">Oxigen · Fintech</div>
+      <div class="career-detail">Built dedicated sales teams and introduced PAT recharge terminals nationwide — became the <strong>highest PAN-India contributor</strong> by creating a structured, scalable distribution network.</div>
+    </li>
+    <li>
+      <div class="career-org">NPCI · Digital Payments</div>
+      <div class="career-detail">Led the Aadhaar cash-out pilot that helped lay the foundation for <strong>India's UPI ecosystem</strong> — 75,000+ transactions processed at a 99% success rate.</div>
+    </li>
+    <li>
+      <div class="career-org">Silage Agro · Agri-tech</div>
+      <div class="career-detail">Delivered a <strong>39% improvement in ex-factory realization</strong> through structured business planning and the build-out of CRM/MIS systems from the ground up.</div>
+    </li>
+  </ul>
+</section>
+
+<!-- DELIVERY TABLE -->
+<section class="section" id="deliver">
+  <div class="section-label">What I Deliver</div>
+  <h2 class="section-title">Strategy + Operations: The Complete Solution.</h2>
+  <p>For small and mid-size grocery chains that need both the blueprint and the builder.</p>
+  <table class="delivery-table">
+    <thead>
+      <tr>
+        <th>Strategic Front</th>
+        <th>Operational Front</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Category roadmaps balancing profitability &amp; availability</td>
+        <td>Store layouts optimised for sales velocity</td>
+      </tr>
+      <tr>
+        <td>Private label strategies for margin expansion</td>
+        <td>Inventory systems that eliminate dead stock</td>
+      </tr>
+      <tr>
+        <td>Festive season playbooks for peak performance</td>
+        <td>Central kitchen operations freeing retail space</td>
+      </tr>
+      <tr>
+        <td>New revenue models — listing fees, endcap rentals</td>
+        <td>HR/payroll systems built for smooth scaling</td>
+      </tr>
+      <tr>
+        <td>Business planning aligned to P&amp;L goals</td>
+        <td>KPI dashboards for real-time decisions</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="delivery-note">I bridge both worlds: designing the strategy AND making it work on the shopfloor.</p>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="section" id="painpoints">
+  <div class="section-label">Your Pain Points. My Dual Expertise.</div>
+  <h2 class="section-title">If Your Retail Business Is Asking These Questions —</h2>
+  <div class="pain-grid">
+    <div class="pain-col">
+      <h4>Strategy</h4>
+      <ul>
+        <li>Dead stock killing my margins?</li>
+        <li>Weak festive season capture?</li>
+        <li>No category roadmap in place?</li>
+        <li>Private label not delivering profit?</li>
+      </ul>
+    </div>
+    <div class="pain-col">
+      <h4>Operations</h4>
+      <ul>
+        <li>Store expansion turning chaotic?</li>
+        <li>Manpower gaps hurting service?</li>
+        <li>No real-time performance visibility?</li>
+        <li>Supply chain leaking margin?</li>
+      </ul>
+    </div>
+    <div class="pain-resolution">
+      The answer is rarely <strong>just strategy</strong> or <strong>just operations</strong> — it is almost always both. I deliver integrated solutions: strategic frameworks that actually execute, and operational systems that scale profitably.
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section-label">Let's Talk</div>
+  <h2 class="section-title">Ready for a Conversation?</h2>
+  <p>Whether you are looking for a senior leadership hire or a retail consultant who can diagnose, design, and deliver — I would welcome a conversation.</p>
+  <div class="contact-links">
+    <a class="contact-link" href="mailto:alok.badoni@gmail.com">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      alok.badoni@gmail.com
+    </a>
+    <a class="contact-link" href=https://www.linkedin.com/in/alokbadoni/ target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+      LinkedIn Profile
+    </a>
+    <a class="contact-link" href="#">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      Delhi-NCR / Bengaluru
+    </a>
+  </div>
+</section>
+
+<footer>
+  © 2025 Alok Badoni · Retail Strategy & Operations Leader
+</footer>
+
+</body>
+</html>
