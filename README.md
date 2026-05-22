@@ -1,0 +1,1 @@
+This repository contains the codebase for a live site deployed on behalf of a client. My primary role on this project was managing the deployment pipeline, hosting configuration, and launching the final site to production.
